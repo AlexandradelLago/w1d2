@@ -1,5 +1,8 @@
 // Find the maximum
-// lets start
+function maxOfTwoNumbers(num,num2){
+  if (num>num2) return num;
+  if (num2>=num) return num2;
+}
 // Finding Longest Word
 var words = [
   'mystery',
@@ -10,14 +13,33 @@ var words = [
   'orchard',
   'crackpot'
 ];
+  function findLongestWord(words){
+    let max=0;
+    let wordIndex=0;
+    words.forEach((e,index)=> {
+      console.log(max);
+      if (e.length>max){
+        max=e.length; wordIndex=index;
+      } 
+    });
 
+  return words[wordIndex];
+}
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumArray(numbers){
+  return numbers.reduce((acc,currentV)=>{return acc+currentV;},0);
+}
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+function averageNumbers(numbersAvg){
+  return sumArray(numbersAvg)/numbersAvg.length;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +54,12 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+
+function averageWordLength(wordsArr){
+  let wordslengths=[];
+  wordsArr.forEach(e=>wordslengths.push(e.length));
+  return sumArray(wordslengths)/wordslengths.length;
+}
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +76,22 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(wordsUnique){
+let noDuplicates=[];
+if (wordsUnique<1){
+  return;
+}
+else {
+  wordsUnique.forEach(e=>{
+    if (noDuplicates.indexOf(e)===-1){
+      noDuplicates.push(e);
+    }
+  });
+return noDuplicates;
+}
+
+}
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,7 +103,14 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
-
+function doesWordExist(wordsFind,word){
+ for (i=0;i<wordsFind.length;i++){
+   if (wordsFind[i]===word){
+     return true;
+   }
+ }
+ return false;
+}
 // Counting Repetion
 var wordsCount = [
   'machine',
@@ -74,6 +125,16 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(words,word){
+  let count=0;
+  for (i=0;i<words.length;i++){
+    if (words[i]===word){
+      count++;
+    }
+  }
+  return count;
+}
 // Bonus Quest
 
 var matrix = [
@@ -98,3 +159,5 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+
